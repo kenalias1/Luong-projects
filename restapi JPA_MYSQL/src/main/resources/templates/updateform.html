@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>RESTful API Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style th:inline="text">
+body
+{
+background-color : rgb(40, 5, 121);
+}
+
+* {
+  box-sizing:border-box;
+}
+#main {
+        width: 90%;
+        margin: 0 auto;
+        padding: 10px;
+        background: #fff38b;
+        border-radius: 5px;
+}
+
+/* Style the header */
+.header {      
+  height: 200px;
+ 
+  border-radius: 10px; 
+  margin-bottom: 10px;
+  position: relative;
+ 
+  background-image:url([[@{/bn.jpg}]]); 
+  background-size: 100%;  
+  background-repeat: no-repeat;
+}
+
+.header h1 {  
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 60%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-30%, -70%);}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgba(250, 163, 64, 0.952);
+  border: width 2px;em; 
+  border-radius: 10px;   
+  margin-top: 0px;
+  padding-top: 2px;
+  padding-bottom: 2px; 
+
+}
+
+.column2, .column3 {
+  margin-top: 10px;
+}
+
+
+.column2 {
+  float: left;
+/* add shadow effect */
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, .45);  
+  backdrop-filter: blur(5px);
+  border-radius: 10px; 
+
+  width: 80%;   
+
+  padding-top: 30px;  
+  min-height: 500px;
+}
+.column3 {
+  float: left;
+  width: 20%;
+  
+  min-height: 500px;
+  padding: 11px;
+  padding-top: 30px;
+  background-color: rgb(233, 200, 94);
+  border-left: 2px solid rgb(4, 2, 20);
+  border-radius: 10px; 
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both; 
+}
+
+ .row h2 {
+  text-align:center;
+}
+
+.footer {   
+  text-align: center;
+  background-color: rgb(255, 221, 108);  
+	border-radius: 10px; 
+  margin-top: 10px;
+  height: 100px; 
+  padding-top: 6px;
+  color:#000000;
+}
+.result3 {
+  border-radius: 6px;
+    position: relative;
+    display: inline-block; 
+    background: green;
+    background-image: linear-gradient(rgb(2, 70, 172),rgb(136, 199, 241));
+    text-decoration: none;
+    color: #fff;       
+    box-shadow: 0px 4px 2px -2px #333;
+    text-shadow: 1px -1px #333;
+}
+.result3:after {
+    content: '';
+    position: absolute;
+    border-radius: 6px;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: 50%;
+    background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+}
+.result3:hover{
+  border-radius: 6px;
+	background: linear-gradient(rgb(17, 165, 250),rgb(4, 240, 248));
+}
+#home-page {
+  margin-left: 5px;
+  font-size: 20px;
+  padding: 10px 16px;
+  
+}
+.smbutton-a {
+  padding: 5px;
+  width: 65px;
+  text-align: center;
+ 
+}
+button {
+  border: 0ch;
+}
+#divform1 {
+  margin-left: 25px;
+}
+input.frminput {
+  width: 80%;  
+  margin: 0%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+td input.frminput {
+  width: 98%; 
+}
+input.frminput:focus {
+  border: 2px solid rgb(7, 31, 245);
+}
+#home-page {
+  border-radius: 10px;
+  margin-bottom: 1px;
+
+}
+#sql-lst-all-wrapper {
+width: fit-content;
+border: 1px solid #333;
+margin: auto;
+
+}
+
+.sql-lst-all {  
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse:collapse;
+ 
+}
+
+.sql-lst-all td, .sql-lst-all th {
+  border: 1px solid rgb(221, 221, 221);
+  padding: 8px;
+}
+
+.sql-lst-all tr:nth-child(even){background-color: #5fd8f7;}
+
+.sql-lst-all tr:hover {background-color: #ddd;}
+
+.sql-lst-all th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+.sql_action {
+  cursor: pointer;
+  text-decoration: underline;
+  color: blue;
+}
+#add_customer {
+  text-align: center;
+  cursor: pointer;
+}
+
+
+#add_customer {
+	box-shadow:inset 0px 1px 0px 0px #54a3f7;
+	background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+	background-color:#007dc1;
+	border-radius:3px;
+	border:1px solid #124d77;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;	
+	text-decoration:none;
+	text-shadow:0px 1px 0px #154682;
+  margin: 0;
+ 
+
+}
+
+#add_customer :hover { 
+	background-color:#13d3ec;
+}
+
+.table_cap_text {  
+
+
+}
+#cap_text_line {
+  text-align: center;
+}
+
+#sql_input_row td {
+  padding-left: 0.6%;
+  padding-right: 0.9%;
+}
+
+</style>
+</head>
+<body>
+
+<div id = "main">
+<div class="header">  
+  <h1>Welcome!</h1>
+</div>
+
+<div class="topnav">
+  <a id = "home-page" class = "result3" href="/"  >Home</a>  
+
+
+</div>
+
+<div class="row">
+
+  
+  <div class="column2">
+    <div class = "table _cap_text"><h4 id = "cap_text_line">Please fill in the form below then click the update button</h4></div>
+  <div id = "sql-lst-all-wrapper">
+      <div class="sql-lst-all sql-lst">
+        <table>
+          <tbody><tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+              <th>Email</th>
+              <th colspan="3" id = "sql_acttion_cap">Action</th>
+          </tr>
+          <script>
+                function ajaxPOST_update () {
+                      document.getElementById("hidden_form_name").value = document.getElementById("txtbox_name").value;
+                      document.getElementById("hidden_form_age").value = document.getElementById("txtbox_age").value;
+                      document.getElementById("hidden_form_email").value = document.getElementById("txtbox_email").value;
+                          var form = document.getElementById("hidden_form");
+                        form.submit();  
+                 }
+          </script>
+          <tr id = "sql_input_row">      
+            <td th:text="${customer.id}"></td>
+         <td><input class = "frminput" type="text" id = "txtbox_name" th:attr= "value = ${customer.name}" ></td>
+          <td><input class = "frminput" type="text" id = "txtbox_age" th:attr= "value = ${customer.age}" ></td>
+           <td><input class = "frminput" type="text" id = "txtbox_email" th:attr= "value = ${customer.email}"></td>
+            <td colspan = "3" id = "add_customer" onclick = "ajaxPOST_update ()">Update</td>
+            </tr>  
+        </tbody></table>
+        <form action="/update" hidden method="post" id = "hidden_form">        
+          <input id="hidden_form_id" name="id" th:attr= "value = ${customer.id}">
+          <input  id="hidden_form_name" name="name" value="">
+          <input id="hidden_form_age" name="age" value="">
+          <input id="hidden_form_email" name="email" value=""> 
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="column3">
+    <div id="divform1">
+      <form action="" id = "form1" method="post">
+        <label for="fname">User name:</label><br>
+        <input class = "frminput" type="text" id="fname" name="username" value=""><br>
+        <label for="lname">Password:</label><br>
+        <input class = "frminput" type="text" id="lname" name="password" value=""><br><br>       
+      </form>     
+      <button class = "result3 smbutton-a" type="submit" form="" value="Submit">Log in</button>
+      <button class = "result3 smbutton-a" type="submit" form="" value="Submit">Sign up</button>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  <h3>Designed by Luong</h3>
+   <h4>Email: kenalias1@gmail.com</h4>
+</div>
+</div>
+
+
+</body>
+</html>
